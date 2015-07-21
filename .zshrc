@@ -83,21 +83,21 @@ source $ZSH/oh-my-zsh.sh
 
 # User functions
 function mkdir_and_cd () {
-	mkdir -p "$@" && eval cd "\"\$$#\"";
+  mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
 function pgrep_and_kill () {
-	procs=$( pgrep -l "$@" )
+  procs=$( pgrep -l "$@" )
 
-	if [[ -z $procs ]]; then
-		printf "No processes found for \"${@}\"\n"
-		return
-	fi
+  if [[ -z $procs ]]; then
+    printf "No processes found for \"${@}\"\n"
+    return
+  fi
 
-	printf "Kill the following process(es)?\n${procs}\n[yn] "
-	read yn </dev/tty
+  printf "Kill the following process(es)?\n${procs}\n[yn] "
+  read yn </dev/tty
 
-	if [[ -z "$yn" ]]; then
+  if [[ -z "$yn" ]]; then
         yn="y"
     fi
 
@@ -107,7 +107,7 @@ function pgrep_and_kill () {
 }
 
 function ps_aux_and_grep () {
-	ps aux | grep "$@";
+  ps aux | grep "$@";
 }
 
 
