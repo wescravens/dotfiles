@@ -87,7 +87,23 @@ function mkdir_and_cd () {
 }
 
 function pgrep_and_kill () {
-	pgrep "$@" | xargs sudo kill;
+	procs=$( pgrep -l "$@" )
+
+	if [[ -z $procs ]]; then
+		printf "No processes found for \"${@}\"\n"
+		return
+	fi
+
+	printf "Kill the following process(es)?\n${procs}\n[yn] "
+	read yn </dev/tty
+
+	if [[ -z "$yn" ]]; then
+        yn="y"
+    fi
+
+    case $yn in
+        [Yy]* ) printf "test"; pgrep "$@" | xargs sudo kill;;
+    esac
 }
 
 function ps_aux_and_grep () {
