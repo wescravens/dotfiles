@@ -110,8 +110,6 @@ function ps_aux_and_grep () {
   ps aux | grep "$@";
 }
 
-
-export C2FO_HOME=/Users/wescravens/Code/c2fo
 export NODE_ENV=dockerdev
 export GOPATH=/Users/wescravens/go
 export GOROOT=/usr/local/go
@@ -119,13 +117,9 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export PATH=/Users/wescravens/Code/go_appengine:$PATH
 
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias c2foconfig="subl ~/c2fo/configs/config.json"
-alias c2focreatemarket="grunt refresh_db setup_db test_market:3:0:3:1000 add_feature_to_org:enterprise create_taker_offers create_market_clears:1:30 create_stats set_users_passwords::all"
-alias onboarding="cd ${C2FO_HOME} && grunt create_onboarding_experiment taker_verification:user1@c2fo.com"
 alias rmorig="rm ./**/*.orig"
 alias zshrc="subl ~/.zshrc"
 alias zsrc="source ~/.zshrc"
-
 alias mkd="mkdir_and_cd"
 alias killgrep="pgrep_and_kill"
 alias psgrep="ps_aux_and_grep"
