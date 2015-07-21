@@ -110,7 +110,7 @@ function ps_aux_and_grep () {
   ps aux | grep "$@";
 }
 
-export NODE_ENV=dockerdev
+export NODE_ENV=development
 export GOPATH=/Users/wescravens/go
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
