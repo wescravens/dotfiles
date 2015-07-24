@@ -102,7 +102,7 @@ function pgrep_and_kill () {
     fi
 
     case $yn in
-        [Yy]* ) printf "test"; pgrep "$@" | xargs sudo kill;;
+        [Yy]* ) pgrep "$@" | xargs sudo kill;;
     esac
 }
 
